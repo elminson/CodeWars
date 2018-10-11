@@ -44,4 +44,21 @@ class CodeWars
         $count++;
         return $this->persistence($sum, $count);
     }
+
+    public function duplicateEncode($word)
+    {
+        $word = str_replace(" ", "|", $word);
+        $word = strtolower($word);
+        $array = str_split($word);
+        $values = array_count_values($array);
+        foreach ($array as $key => $value) {
+            if ($values[$value] == 1) {
+                $array[$key] = "(";
+            } else {
+                $array[$key] = ")";
+            }
+        }
+        return join($array);
+    }
+
 }

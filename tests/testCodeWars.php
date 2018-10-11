@@ -33,4 +33,14 @@ class testCodeWars extends TestCase
         $this->assertEquals(3, $codewars->persistence(39));
         $this->assertEquals(4, $codewars->persistence(999));
     }
+
+    public function testBasicsDuplicateEncode()
+    {
+        $codewars = new CodeWars();
+        $this->assertEquals('(((', $codewars->duplicateEncode('din'));
+        $this->assertEquals('()()()', $codewars->duplicateEncode('recede'));
+        $this->assertEquals(')())())', $codewars->duplicateEncode('Success'), 'should ignore case');
+        $this->assertEquals('))))))', $codewars->duplicateEncode('iiiiii'), 'duplicate-only-string');
+        $this->assertEquals(')))))(', $codewars->duplicateEncode('a(a(a)'));
+    }
 }
