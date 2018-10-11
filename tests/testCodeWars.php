@@ -5,6 +5,7 @@
  * Date: 10/3/18
  * Time: 1:52 PM
  */
+
 namespace Elminson\CodeWars;
 
 require __DIR__ . '/../vendor/autoload.php';
@@ -17,10 +18,19 @@ class testCodeWars extends TestCase
     /**
      *
      */
+
     function testFirstTestCase()
     {
         $codewars = new CodeWars();
         $this->assertEquals("index", $codewars->index());
-        $this->assertEquals(9, $codewars->squareSum([1,2,2]));
+        $this->assertEquals(9, $codewars->squareSum([1, 2, 2]));
+    }
+
+    public function testDescriptionExamples()
+    {
+        $codewars = new CodeWars();
+        $this->assertEquals(0, $codewars->persistence(4));
+        $this->assertEquals(3, $codewars->persistence(39));
+        $this->assertEquals(4, $codewars->persistence(999));
     }
 }

@@ -31,9 +31,17 @@ class CodeWars
         return array_sum(array_map(array($this, 'square'), $array));
     }
 
-    static private function square($n)
+    private function square($n)
     {
         return pow($n, 2);
     }
 
+    public function persistence(int $num, int $count = 0)
+    {
+        $sum = array_product(array_map('intval', str_split($num)));
+        if ($num < 10 && $sum == $num) return 0;
+        if ($sum < 10) return $count + 1;
+        $count++;
+        return $this->persistence($sum, $count);
+    }
 }
