@@ -26,6 +26,14 @@ class CodeWars
         return "index";
     }
 
+    public function squareSum($array)
+    {
+        return array_sum(array_map(array($this, 'square'), $array));
+    }
 
+    static private function square($n)
+    {
+        return pow($n, 2);
+    }
 
 }

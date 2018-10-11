@@ -21,6 +21,6 @@ class testCodeWars extends TestCase
     {
         $codewars = new CodeWars();
         $this->assertEquals("index", $codewars->index());
+        $this->assertEquals(9, $codewars->squareSum([1,2,2]));
     }
-
 }
